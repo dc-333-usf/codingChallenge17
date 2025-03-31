@@ -56,3 +56,26 @@ class SalesRep { //create a class, "SalesRep"
 const salesRep1 = new SalesRep("Jake");
 salesRep1.addclient(customer1);
 salesRep1.getClientTotal("Jacky"); //test data
+
+
+//Task 3: Create a VIPCustomer Class (extends Customer)
+class VIPCustomer extends Customer { //create a class that extends off the Customer class
+    constructor(name, email, vipLevel) { //create a constructor that takes name, email, and vipLevel
+        super(name, email); //use the name and email arguments for functionality with the Customer class
+        this.vipLevel = vipLevel; //set this.vipLevel equal to the input of vipLevel
+    }
+
+    getTotalSpent() { //add a method to get the total spent with a 10% add on
+        console.log((this.purchaseHistory.reduce((total, n) => total + n, 0)) * 1.10); //use the .reduce method to add up all instances in the purchase history array with 10% bonus
+        return; //stop any further code execution
+    }
+}
+
+const customer2 = new VIPCustomer("Kevin", "KevinG@gmail.com", "Gold");
+console.log(customer2);
+customer2.addPurchase(20);
+customer2.addPurchase(50);
+customer2.getTotalSpent(); //test data
+
+
+//Task 4: Build a Client Report System.
